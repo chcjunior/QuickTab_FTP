@@ -45,7 +45,8 @@ namespace QuickTab_FTP
             string Database_Name = objConfigReader.Database_Name;
             string Database_Username = objConfigReader.Database_Username;
             string Database_Password = objConfigReader.Database_Password;
-
+            string LogFilePath = objConfigReader.LogFilePath;
+            string LogFileNameBase = objConfigReader.LogFileNameBase;
             string GetConnectionString_SQL = objConfigReader.GetConnectionString_SQL(DB_Host_Name, SQLProvider_Name, Database_Name, Database_Username, Database_Password);
  
             if (vdebug == 1)
@@ -66,6 +67,8 @@ namespace QuickTab_FTP
                 Console.WriteLine(Database_Name);
                 Console.WriteLine(Database_Username);
                 Console.WriteLine(Database_Password);
+                Console.WriteLine(LogFilePath);
+                Console.WriteLine(LogFileNameBase);
                 Console.WriteLine(GetConnectionString_SQL);
             }
 
@@ -81,7 +84,7 @@ namespace QuickTab_FTP
             //check for file names in ftp outbound directory
             // objInboundFileChecker.CheckFolder(ftp_UNCInbound_Directory);
 
-            ProcessFlag = "QT_Return";  
+            ProcessFlag = "QT_Return";  //make this parameter
             objInboundFileChecker.CheckFolder(ProcessFlag, ftp_UNCInbound_Directory, GetConnectionString_SQL);
 
             //UploadSFTPFile(string host, string username, string password, string sourcefile, string destinationpath, int port)

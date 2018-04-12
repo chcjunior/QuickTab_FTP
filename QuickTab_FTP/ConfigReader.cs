@@ -26,8 +26,8 @@ namespace QuickTab_FTP
         public string Database_Name { get; set; }
         public string Database_Username { get; set; }
         public string Database_Password { get; set; }
-
-
+        public string LogFilePath { get; set; }
+        public string LogFileNameBase { get; set; }
 
         // Default Constructor
         // private ConfigReader()
@@ -35,7 +35,7 @@ namespace QuickTab_FTP
         //     ReadAllConfigProperties();
         // }
 
-        /// Gets Instance
+        /// Gets Instance...code concept copied from Sashi but I'm questioning why necessary....
         private static Lazy<ConfigReader> instance = new Lazy<ConfigReader>(() => new ConfigReader());
 
         public static ConfigReader Instance { get { return instance.Value; } }
@@ -119,6 +119,14 @@ namespace QuickTab_FTP
             if (ConfigurationManager.AppSettings["Database_Password"].Trim() != "")
             {
                 Database_Password = (ConfigurationManager.AppSettings["Database_Password"]).Trim();
+            }
+            if (ConfigurationManager.AppSettings["LogFilePath"].Trim() != "")
+            {
+                LogFilePath = (ConfigurationManager.AppSettings["LogFilePath"]).Trim();
+            }
+            if (ConfigurationManager.AppSettings["LogFileNameBase"].Trim() != "")
+            {
+                LogFileNameBase = (ConfigurationManager.AppSettings["LogFileNameBase"]).Trim();
             }
         }
 

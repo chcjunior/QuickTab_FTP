@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigReader.cs" />
+    <Compile Include="EmailHelper.cs" />
     <Compile Include="File_Checker.cs" />
     <Compile Include="FTP_Class.cs" />
     <Compile Include="Program.cs" />
